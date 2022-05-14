@@ -1,3 +1,21 @@
 when downloading the lib for this project
 you will need to do  sudo -H pip install <lib name>
 doing so will make it so that the script can be ran on boot
+
+
+after that go to cd to config.txt in boot folder
+and make sure you have this (required for proper set up audio
+
+under <# Enable audio (loads snd_bcm2835)>
+do
+#dtparam=audio=false
+[all]
+dtoverlay = hifiberry-dac
+gpio=25=op,dh
+
+finally
+in terminal enter sudo /etc/rc.local
+before exit 0 type
+sudo python3 <dir>/smolMp3V3.py
+then save by presing ctrl+x+y+enter
+and reboot the system
