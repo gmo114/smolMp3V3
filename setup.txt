@@ -1,0 +1,3 @@
+when downloading the lib for this project
+you will need to do  sudo -H pip install <lib name>
+doing so will make it so that the script can be ran on boot
