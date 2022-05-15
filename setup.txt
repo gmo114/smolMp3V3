@@ -1,8 +1,8 @@
 when downloading the lib for this project
 you will need to do  sudo -H pip install <lib name>
-doing so will make it so that the script can be ran on boot
+doing so will make it so that the script can be ran at boot without moduel errors
 
-
+------------------------------------
 after that go to cd to config.txt in boot folder
 and make sure you have this (required for proper set up audio
 
@@ -12,7 +12,16 @@ do
 [all]
 dtoverlay = hifiberry-dac
 gpio=25=op,dh
-
+------------------------------------
+to make the file run at boot time
+do 
+sudo nano /etc/lc.local
+before exit 0
+type
+(python3 <dir>/smolMp3V3.py)
+or 
+(python <dir>/smolMp3V3.py)
+------------------------------------
 finally
 in terminal enter sudo /etc/rc.local
 before exit 0 type
