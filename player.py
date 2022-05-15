@@ -9,7 +9,7 @@ class mp3Player:
         mixer.init()
         self.vol = 0.05
         self.folder = folder
-        for (path, dirname, titles) in walk("//home//gmo//Music//"): #dir of music
+        for (path, dirname, titles) in walk(folder): #dir of music
                 self.mixlist = titles
         self.currentSong = self.mixlist[0]
         
