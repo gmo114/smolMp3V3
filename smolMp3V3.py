@@ -102,7 +102,17 @@ if __name__ == "__main__":
             br -= 2
         bw.ChangeDutyCycle(br)
         answer  = [not GPIO.input(5),not GPIO.input(6),not GPIO.input(16),not GPIO.input(24)]
+        #checks if the a new song is playing if so it will update the dipslay
+        # this was need because Running will not update the display when the a new song get loaded
+        currentSongCheck = player.currentSong
         player.Running()
+        if currentSongCheck != player.currentSong:
+            script[len(script)-1]="------------------------------------"
+            script = update("currently playing: "+player.currentSong,script)
+            bw.ChangeDutyCycle(100) #this is the only exception as to how I change the brightness in for loop
+            br = 100
+        #end of check
+        
         if answer == [True,False,False,False]:# pause/play
             if(not pause):
                 player.pause()
